@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				list-style:none;
+				margin: 0;
+			}
+			.menu li{
+				float: left;
+			}
+			/*.clear{
+				clear: both;
+			}*/
+			
+			/*
+			 * 浮动：通过设置css样式float属性来设置
+			 * 	导致的问题：元素会脱离文档流（不占位置），其父级元素高度塌陷。
+			 *	
+			 * 怎么解决这些问题，可以通过清除浮动来解决
+			 * 清除浮动方式：
+			 * 	1、设置其父级元素的高度来清除浮动（不利于扩展，不建议使用）
+			 *  2、可以通过设置空的块级元素的样式为clear:both;来清除(注意：空元素自身不能有浮动)
+			 *  3、给其父元素设置overflow属性即可（值为auto或者hidden都可）
+			 *  4、通过设置伪对象after来清除浮动（注意：需要把伪对象转换为块级元素）
+			 *  
+			 * */
+			
+			/*ul{
+				overflow: auto;
+			}*/
+			ul::after{
+				display: block;
+				content: "";
+				clear: both;
+			}
+			input{
+				padding-left: 4px;
+				outline: none;/*清除表单元素外边线*/
+			}
+			.test{
+				width: 100px;
+				height: 100px;
+				line-height: 50px;
+				padding: 10px;
+				margin: 10px;
+				border: 1px solid #000;
+				box-sizing: border-box;
+			}
+			.sp{
+				margin-top: 100px;
+				margin-left: 100px;
+				padding: 30px; 
+				background: skyblue;
+				line-height: 50px;/*一行文字的时候，当高等行高的时候，可使内容垂直居中*/
+			}
+			/*
+			 * 
+			 * 盒子模型（html中的每一个元素都有盒子模型，即把每一个元素当成一个容器来看待即可）：
+			 * 	盒子模型包含：margin(外边距) + border(边框)+padding(内边距)+content(内容)
+			 * 	w3c标准盒子模型：宽度 = margin + border + padding + content
+			 * 					实际宽度 = border + padding + content(代表我们设置的width的值)
+			 *  
+			 * 
+			 * IE盒子模型（ie6之前的版本）：宽 = margin +　content(包括了border，padding，content)
+			 * 			实际宽度 = content
+			 * 
+			 * display(显示):
+			 * 
+			 * 	块级元素（block）div、p、h1~h6、列表
+			 * 		1、块级元素会占满其父级元素的一整行。
+			 * 		2、可以设置宽高
+			 * 		3、可以设置外边距
+			 * 		4、可以设置内边距，也占位置。
+			 * 
+			 * 	行内元素（inline）span、i、a、em、b、strong
+			 * 		1、内容多少就占多少位置
+			 * 		2、不可以设置宽高
+			 * 		3、不可以设置上下方向的外边距，左右方向的外边距是可以设置的。
+			 * 		4、可以设置内边距，但是上下方向不占位置，左右方向占位置。
+			 * 		
+			 *  行内块元素（inline-blcok）input、img、音频、视频
+			 * 		即有块级元素的特性也有行内元素的特性，即可以设置宽高也可以同一行显示。
+			 * 
+			 * */
+			
+		</style>
+	</head>
+	<body>
+		<!--ul>li{首页}*5-->
+		<ul class="menu">
+			<li>首页</li>
+			<li>首页</li>
+			<li>首页</li>
+			<li>首页</li>
+			<li>首页</li>
+			<!--<li class="clear"></li>-->
+		</ul>
+		<div class="test">
+			你好
+			<p>1</p>
+		</div>
+		<span class="sp">我是行内元素</span>
+		<span class="sp">我是行内元素</span>
+		<div>测试行内元素的特性</div>
+		<input type="text" placeholder="请输入用户名" />
+		<input type="text" placeholder="请输入用户名" />
+		
+		<style type="text/css">
+			/*.testInb{
+				font-size: 0;
+			}*/
+			.testInb li{
+				display: inline-block;
+				background: pink;
+				font-size: 20px;
+			}
+		</style>
+		<ul class="testInb">
+			<li>001</li><li>002</li>
+			<li>003</li>
+			<li>004</li>
+			<li>005</li>
+		</ul>
+		<script type="text/javascript">
+			
+			function test(){
+				var n = 7;
+				for(var i=1;i<=2014;i++){
+					n*=7;
+					n%=100;
+				}
+				console.log(n);
+			}
+			test()
+		</script>
+	</body>
+</html>
